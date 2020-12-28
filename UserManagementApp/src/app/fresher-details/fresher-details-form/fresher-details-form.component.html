@@ -1,0 +1,123 @@
+
+        <form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">   
+
+
+    <input type= "hidden" name="fresherId"
+    [value]="service.formData.fresherId"/>
+    
+
+
+        <div class="form-group">
+            <label>First Name</label>
+            <input class="form-control form-control-lg" placeholder="First name"
+            name="firstName" #firstName="ngModel" [(ngModel)]="service.formData.firstName"
+            required [class.invalid]="firstName.invalid && firstName.touched">
+            <span class="help-block" *ngIf="firstName.invalid && firstName.touched">
+                Enter your first name
+               </span>
+        </div>
+    
+
+    <div class="form-group">
+        <label>Second Name</label>
+        <input class="form-control form-control-lg" placeholder="Second name"
+        name="secondName" #secondName="ngModel" [(ngModel)]="service.formData.secondName"
+        required [class.invalid]="secondName.invalid && secondName.touched">
+        <span class="help-block" *ngIf="secondName.invalid && secondName.touched">
+            Enter your second name
+           </span>
+    </div>
+
+
+    <div class="form-group">
+        <label>Phone number</label>
+        <input class="form-control form-control-lg" placeholder="Phone number"
+        name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="service.formData.phoneNumber">
+    </div>
+
+
+    <div class="form-group" [class.has-error]="emailId.invalid && emailId.touched">
+        <label class="control-label">Email ID</label>
+        <input type="email" class="form-control form-control-lg" placeholder="Email"
+        name="emailId" #emailId="ngModel" [(ngModel)]="service.formData.emailId"
+        required email [class.invalid]="emailId.invalid && emailId.touched"><!-- rqrd-->
+        
+<!--email validation/ ?= save navigation-->
+        <span class="help-block" *ngIf="emailId.errors?.required && emailId.touched"> Enter your Email</span>
+        <span class="help-block" *ngIf="emailId.errors?.email && emailId.touched"> Invalid Email</span>
+    </div>
+    
+
+
+    <div class="form-group">
+        <label>Address</label>
+        <input class="form-control form-control-lg" placeholder="Address"
+        name="address" #address="ngModel" [(ngModel)]="service.formData.address">
+    </div>
+
+
+    <div class="form-row ">
+        <div class="form-group col-md-6">
+            <label>Gender</label>
+            <select class="form-control form-control-lg" placeholder="Select"
+            name="gender" #gender="ngModel" [(ngModel)]="service.formData.gender" required 
+            [class.invalid]="gender.invalid && gender.touched">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+            </select>
+            <span class="help-block" *ngIf="gender.invalid && gender.touched">
+             Select a Gender!
+            </span>
+            
+        </div>
+
+
+        <div class="form-group col-md-6" >
+            
+            <label class="control-label col-md-5">Active</label>
+                <div class="col-md-7" >
+                    <!--radio-->
+                    <label class="radio-inline control-label" id="activeLabel" >
+                        <input checked= "checked" type="radio" value="YES" id="yesRadio" name="customRadioInline1"
+                        #customRadioInline1="ngModel" [(ngModel)]="service.formData.active">  YES
+                    </label>
+                    <label class="radio-inline control-label">
+                        <input type="radio" value="NO" name="customRadioInline2" #customRadioInline2="ngModel"
+                        [(ngModel)]="service.formData.active"> NO
+                    </label>
+                
+                </div>
+        </div>
+    
+
+<!--toggle
+<label class="switch" id="activeLabel">
+    <input type="checkbox" value="YES"  name="switch1"
+    #switch1="ngModel" [(ngModel)]="service.formData.active">
+    <span class="slider round"></span>
+
+       
+    
+    
+  </label>
+  </div>
+  </div>-->
+
+<!---->
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+        <button class="btn btn-info btn-lg btn-block" type="submit"
+        [disabled]="form.invalid">SUBMIT</button>
+        </div>
+        <div class="form-group col-md-6"></div>
+        <div class="form-group col-md-3">
+        <button class="btn btn-info btn-lg btn-block" style="background: red;" type="reset"
+       >CLEAR</button>
+        </div>
+    
+    </div>
+        </form>
+
+  

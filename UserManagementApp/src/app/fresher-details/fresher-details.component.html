@@ -1,0 +1,100 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center" style=" font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;
+    font-size: 1cm;color: rgb(28, 36, 36);"> USER MANAGEMENT </h1>
+</div>
+
+<div class="form-row">
+    <!--
+        <div class="border"></div>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    -->
+    <div class="col-md-12">
+        <table class="table">
+            
+            <thead class="thead">
+                <tr>
+                    <th>First name</th>
+                    <th>Second name</th>
+                    <th>Phone number</th>
+                    <th>Email ID</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>Active</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            
+            <tbody>
+                
+                    <th><input class="form-control input-sm" type="text" #myinput [(ngModel)]="first"  (input)="searchfirst()" id="mySearch" placeholder="Search " title="Type in a name"></th>
+                    <th><input class="form-control input-sm" type="text" #myinput [(ngModel)]="second" (input)="searchsecond()" id="mySearch"  placeholder="Search" title="Type in a name"></th>
+                    <th><input class="form-control input-sm" type="text" #myinput [(ngModel)]="phone" (input)="searchphone()" id="mySearch" placeholder="Search " title="Type in a number"></th>
+                    <th><input class="form-control input-sm" type="text" #myinput [(ngModel)]="mail" (input)="searchmail()" id="mySearch" placeholder="Search" title="Type in an email"></th>
+                    <th><input class="form-control input-sm" type="text" #myinput [(ngModel)]="addres" (input)="searchaddres()" id="mySearch" placeholder="Search" title="Type in an address"></th>
+                    <th><input class="form-control input-sm" type="text" #myinput [(ngModel)]="gend" (input)="searchgend()" id="mySearch" placeholder="Search" title="Type in a gender"></th>
+                    <th><input class="form-control input-sm" type="text" #myinput [(ngModel)]="actives" (input)="searchactives()" id="mySearch" placeholder="Search " title="Type in a category"></th>
+           
+
+                <tr  id="myUl" *ngFor="let pd of service.list ">
+                    <td >{{pd.firstName}}</td>
+                    <td >{{pd.secondName}}</td>
+                    <td >{{pd.phoneNumber}}</td>
+                    <td >{{pd.emailId}}</td>
+                    <td >{{pd.address}}</td>
+                    <td >{{pd.gender}}</td>
+                    <td >{{pd.active}}</td>
+                    <td>
+                        
+                        
+                        <i class='fas fa-user-edit' style="font-size: 24px; color:#258299;; padding-bottom: 12px;padding-right: 4px;" (click)="populateForm(pd);showModal=true" ></i>
+                        
+                        <i class="far fa-trash-alt fa-lg text-danger" style="font-size: 24px;" (click)="onDelete(pd.fresherId)"></i>
+
+                    </td>
+                    
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<button type="button" class=" btn-info fas fa-user-plus btn-lg  " style="padding-right: 12px;" data-toggle="modal" data-target="#myModal" (click)="showModal=true">
+<span style="font-family:Verdana, Geneva, Tahoma, sans-serif;"> Add User</span></button>
+
+<!-- Modal -->
+<div id="myModal" class="modal" role="dialog"
+    [ngClass]="{'show':showModal}" > 
+    <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="background: rgba(157, 161, 161, 0.253);">
+          <h4 class="modal-title" style="font-weight: bold; font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-size: 24px;color:rgb(32, 39, 39);">
+          <span class="fas fa-id-card"style='font-size:36px'></span>   Add Details </h4>
+        <button type="button" class="close" data-dismiss="modal" (click)="showModal=false">&times;</button>
+      </div>
+      <div class="modal-body">
+          <app-fresher-details-form></app-fresher-details-form>
+      </div>
+      <div class="form-group col-md-3">
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info btn-small btn-block" data-dismiss="modal" style="background:rgb(226, 50, 19);" (click)="showModal=false">Close</button>
+      </div>
+</div>
+    </div>
+<style>
+    .modal-body{
+        height: 400px;
+        overflow: hidden;
+    }
+    .modal-body:hover{overflow-y: auto;}
+</style>
+  </div>
+
+</div>

@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+@import'~bootstrap/dist/css/bootstrap.min.css';
+html, body { height: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+
+/* Form styles */
+.form-group label {
+    color:rgb(128, 128, 128);
+  }
+  
+  .form-group input {
+    font-weight: 500;
+    
+  }
+
+  .form-group input::placeholder {
+    color: #f1e2e2;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  thead th{
+    background-color: gray;
+    color: white;
+    font-size: 16px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: initial;
+  }
+  
+  table tbody tr:hover {
+    background-color: #e2e2d867;
+    cursor: pointer;
+  }
+ 
+  
+
+  /*for invalid form controls*/
+  input.invalid {
+    border-color: red;
+    
+  }
+  span.help-block
+  {
+      color: red;
+  }
+  /*for active block */
+  #activeLabel{
+  
+      padding-right: 12px;
+  }
+
+/*for modal show*/
+  .modal.show{
+      display: block;
+  }
+  
+
+  
+
+
+
+
+/*search*/
+#mySearch{
+  font-size: 3mm;
+  box-sizing:inherit;
+  
+}
